@@ -1,0 +1,8 @@
+{
+  "name": "ElevateAI Resume Analyzer",
+  "description": "An advanced AI-powered resume analysis tool that provides ATS scoring, keyword optimization, and professional feedback using Gemini AI.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
