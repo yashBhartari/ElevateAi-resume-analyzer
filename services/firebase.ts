@@ -1,20 +1,20 @@
+import { initializeApp, type FirebaseApp } from "firebase/app";
+import { getAuth, type Auth } from "firebase/auth";
 
-import * as firebaseApp from "firebase/app";
-import * as firebaseAuth from "firebase/auth";
-
-// Use namespace destructuring to bypass "no exported member" errors
-const { initializeApp } = firebaseApp as any;
-const { getAuth } = firebaseAuth as any;
-
-// These values would normally come from your Firebase Console.
+// Firebase configuration using Vite env variables
 const firebaseConfig = {
-  apiKey: "AIzaSyBThaaAgMK0SxVdKOqbWpLn8vLcEcsPLys",
-  authDomain: "mernai-6de82.firebaseapp.com",
-  projectId: "mernai-6de82",
-  storageBucket: "mernai-6de82.firebasestorage.app",
-  messagingSenderId: "469552958816",
-  appId: "1:469552958816:web:fc75b43c7a3927ba5ee205"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY as string,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN as string,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID as string,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET as string,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID as string,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID as string,
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+// Initialize Firebase
+const app: FirebaseApp = initializeApp(firebaseConfig);
+
+// Initialize Firebase Auth
+export const auth: Auth = getAuth(app);
+
+export default app;
